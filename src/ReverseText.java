@@ -7,23 +7,31 @@ public class ReverseText {
 		System.out.println("Gi inn streng: ");
 		String text = input.nextLine();
 		System.out.printf("\nStrengen baklengs: \n");
-		reverse(text);
 		
+		try {
+		reverse(text);
 		System.out.println("\n");
 		System.out.println("Antall tegn: " + counter);
+		}
+		catch (StringIndexOutOfBoundsException ex) {
+			System.out.println("----- Ingen streng funnet -----");
+		}
+	}
+	public static void reverse(String text) {
+		int last = text.length() - 1;
+		reverse(text, last);
 	}
 	
-	public static void reverse(String text) {
+	public static void reverse(String text, int last) {
 		counter++;
-		int length = text.length();
 		// Base case
-		if(length == 1)
-			System.out.print(text);
+		if(last <= 0)
+			System.out.print(text.charAt(0));
 		
 		// Recursive case
 		else {
-			System.out.print(text.substring(length - 1));
-			reverse(text.substring(0, length - 1));
+			System.out.print(text.charAt(last));
+			reverse(text, last - 1);
 		}
 	}
 }

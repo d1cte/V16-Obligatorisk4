@@ -20,6 +20,11 @@ public class TowerOfHanoi {
 	 *  from fromTower to toTower with auxTower */
 	public static void moveDisks(int n, char fromTower, char toTower, char auxTower) {
 		counter++;
+		/*Kommentar til versjon 0.3: 
+		 * Er usikker på hva som menes med at jeg også skal telles antall kall til metoden. 
+		 * Min plassering av telleren vil jo få med alle kall til metoden, 
+		 * og det er jo alltid en flytting per kall, så her vil jo antall kall være lik antall flyttinger. 
+		*/
 		if(n == 1) // Stopping condition
 			System.out.println("Flytt skive " + n + " fra " + fromTower + " til " + toTower);
 		else {
